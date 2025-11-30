@@ -1,0 +1,40 @@
+body ,html {
+    margin: 0;
+    padding: 0;
+}
+/* 調整header的設置 */
+header {
+    width: 100%;
+    height: 100px;
+    position: absolute;
+}
+header ul {
+    width: auto;
+    height: 100%;
+    list-style: none;
+    display: flex;
+    justify-content:flex-end;
+    align-items: center;
+    padding: 0;
+    margin:0 60px 0 0;
+    gap:60px;
+}
+header .header_link{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
+
+/* 調整第一頁第一章的設置 */
+.page-1 {
+    background-color: #345370;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.page-1 img {
+    object-fit: cover;
+    vertical-align: bottom;
+}
