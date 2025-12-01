@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_圖層_7" data-name="圖層 7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #b02737;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: #b22a34;
+      }
+
+      .cls-3 {
+        fill: #e9212c;
+      }
+
+      .cls-4 {
+        fill: #eee8da;
+      }
+
+      .cls-5 {
+        fill: #fee7a3;
+      }
+
+      .cls-6 {
+        fill: #f3f6eb;
+      }
+
+      .cls-7 {
+        fill: #fff;
+      }
+
+      .cls-8 {
+        fill: #dbd299;
+      }
+
+      .cls-9 {
+        fill: #e9b4b0;
+      }
+
+      .cls-10 {
+        fill: #c13a40;
+      }
+    </style>
+  </defs>
+  <rect class="cls-2" x="375" y="861.57" width="214.63" height="89.43"/>
+  <polygon class="cls-10" points="546.41 785.56 502.53 861.57 590.3 861.57 546.41 785.56"/>
+  <polygon class="cls-9" points="546.41 805.95 514.38 861.44 578.45 861.44 546.41 805.95"/>
+  <polygon class="cls-7" points="546.41 785.56 422.28 785.56 375 861.57 502.53 861.57 546.41 785.56"/>
+  <polygon class="cls-4" points="389.26 838.65 515.76 838.65 502.53 861.57 375 861.57 389.26 838.65"/>
+  <polygon class="cls-6" points="529.47 814.9 403.59 814.9 389.26 838.65 515.76 838.65 529.47 814.9"/>
+  <rect class="cls-3" x="375" y="861.57" width="127.44" height="44.71"/>
+  <rect class="cls-1" x="502.44" y="861.57" width="87.19" height="89.43"/>
+  <rect class="cls-8" x="533.74" y="897.34" width="29.06" height="53.66"/>
+  <rect class="cls-5" x="547.15" y="897.34" width="15.65" height="53.66"/>
+  <rect class="cls-1" x="437.6" y="765.44" width="24.59" height="20.12"/>
+  <rect class="cls-4" x="433.13" y="758.73" width="33.54" height="6.71"/>
+  <rect class="cls-5" x="395.12" y="897.34" width="20.12" height="20.12"/>
+  <rect class="cls-5" x="444.31" y="897.34" width="20.12" height="20.12"/>
+</svg>

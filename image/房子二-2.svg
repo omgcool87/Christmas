@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_圖層_8" data-name="圖層 8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #eee8da;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: #fff9c7;
+      }
+
+      .cls-3 {
+        fill: #e1be84;
+      }
+
+      .cls-11 {
+        fill: none;
+        stroke: #9b7d27;
+        stroke-miterlimit: 10;
+        stroke-width: 4px;
+      }
+
+      .cls-4 {
+        fill: #fee7a3;
+      }
+
+      .cls-5 {
+        fill: #f3f6eb;
+      }
+
+      .cls-6 {
+        fill: #af8a3c;
+      }
+
+      .cls-7 {
+        fill: #fff;
+      }
+
+      .cls-8 {
+        fill: #dbd299;
+      }
+
+      .cls-9 {
+        fill: #9b7d27;
+      }
+
+      .cls-10 {
+        fill: #e3aa50;
+      }
+    </style>
+  </defs>
+  <rect class="cls-6" x="785.92" y="746.95" width="418.76" height="174.48"/>
+  <polygon class="cls-3" points="1120.37 598.64 1034.74 746.95 1206 746.95 1120.37 598.64"/>
+  <polygon class="cls-2" points="1120.37 638.42 1057.87 746.68 1182.88 746.68 1120.37 638.42"/>
+  <polygon class="cls-7" points="1120.37 598.64 878.18 598.64 785.92 746.95 1034.74 746.95 1120.37 598.64"/>
+  <polygon class="cls-1" points="813.74 702.23 1060.56 702.23 1034.74 746.95 785.92 746.95 813.74 702.23"/>
+  <polygon class="cls-5" points="1087.31 655.9 841.7 655.9 813.74 702.23 1060.56 702.23 1087.31 655.9"/>
+  <rect class="cls-10" x="785.92" y="746.95" width="248.64" height="87.24"/>
+  <rect class="cls-9" x="1034.56" y="746.95" width="170.12" height="174.48"/>
+  <rect class="cls-8" x="1095.63" y="816.74" width="56.71" height="104.69"/>
+  <rect class="cls-4" x="1121.81" y="816.74" width="30.53" height="104.69"/>
+  <rect class="cls-9" x="908.06" y="559.38" width="47.98" height="39.26"/>
+  <rect class="cls-1" x="899.34" y="546.29" width="65.43" height="13.09"/>
+  <rect class="cls-4" x="829.54" y="816.74" width="39.26" height="39.26"/>
+  <rect class="cls-4" x="925.51" y="816.74" width="39.26" height="39.26"/>
+  <line class="cls-11" x1="1135.99" y1="555.02" x2="1101.09" y2="555.02"/>
+  <line class="cls-11" x1="1118.54" y1="537.57" x2="1118.54" y2="598.64"/>
+</svg>

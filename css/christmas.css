@@ -1,12 +1,14 @@
 body ,html {
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
 /* 調整header的設置 */
 header {
     width: 100%;
     height: 100px;
     position: absolute;
+    z-index: 2;
 }
 header ul {
     width: auto;
@@ -26,15 +28,107 @@ header .header_link{
 }
 
 
-/* 調整第一頁第一章的設置 */
+
+/* -----調整第一頁第一章的設置----- */
 .page-1 {
     background-color: #345370;
     width: 100%;
     height: 100vh;
     overflow: hidden;
 }
-
+/* 前景圖 */
 .page-1 img {
     object-fit: cover;
     vertical-align: bottom;
+    position: absolute;
+    object-position: bottom center;
+}
+.tap-to-start{
+    position: absolute;
+    bottom: 10px; 
+    left: 50%; 
+    transform: translateX(-50%);
+    cursor: pointer;
+    color: #FFA70E;
+}
+.tap-to-start h6 {
+    margin: 0;
+    font-size: 15px;
+}
+.scroll-link {
+    text-decoration: none; /* 移除底線 */
+    color: inherit;        /* 跟隨原本顏色 */
+    display: block;        /* 讓它變成區塊，更容易點擊 */
+}
+
+/* 容器樣式：負責置中與位置 */
+.scroll-indicator {
+    text-align: center;
+    padding: 5px 0;
+}
+
+/* SVG 箭頭樣式：負責顏色、大小與套用動畫 */
+.arrow-svg {
+    width: 40px; /* 箭頭大小 */
+    height: 40px;
+    /* 套用動畫：動畫名稱 時長 無限循環 緩入緩出曲線 */
+    animation: float-down 2s infinite ease-in-out;
+}
+
+/* 定義動畫關鍵影格 */
+@keyframes float-down {
+    0% {
+        transform: translateY(0); /* 起點 */
+    }
+    50% {
+        transform: translateY(10px); /* 向下移動 10px */
+    }
+    100% {
+        transform: translateY(0); /* 回到起點 */
+    }
+}
+
+
+/* -----調整第一頁第二章的設置----- */
+.page-2 {
+    background-color:white;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+.page-2 img {
+    object-fit: cover;
+    vertical-align: bottom;
+    position: absolute;
+    object-position: bottom center;
+}
+
+/* -----調整第一頁第三章的設置----- */
+.page-3 {
+    background-color:#345370;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+.page-3 img {
+    object-fit: cover;
+    vertical-align: bottom;
+    position: absolute;
+    object-position: bottom center;
+}
+footer {
+    width: 100%;
+    height:30px;
+    margin: 0;
+    padding: 0;
+    background-color: #14293d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.copyright p {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-size: 10px;
 }
