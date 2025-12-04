@@ -43,11 +43,6 @@ header .header_link{
     position: absolute;
     object-position: bottom center;
 }
-
-/* 星星 */
-@function --generate-star(--num) {
-
-}
 .star {
     width: 1px;
     height: 1px;
