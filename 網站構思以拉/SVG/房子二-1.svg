@@ -47,18 +47,18 @@
       }
     </style>
   </defs>
-  <rect class="cls-2" x="1450.19" y="940.6" width="243.35" height="101.4"/>
-  <polygon class="cls-10" points="1644.54 854.42 1594.78 940.6 1694.3 940.6 1644.54 854.42"/>
-  <polygon class="cls-9" points="1644.54 877.54 1608.22 940.45 1680.86 940.45 1644.54 877.54"/>
-  <polygon class="cls-7" points="1644.54 854.42 1503.8 854.42 1450.19 940.6 1594.78 940.6 1644.54 854.42"/>
-  <polygon class="cls-4" points="1466.35 914.62 1609.79 914.62 1594.78 940.6 1450.19 940.6 1466.35 914.62"/>
-  <polygon class="cls-6" points="1625.33 887.69 1482.6 887.69 1466.35 914.62 1609.79 914.62 1625.33 887.69"/>
-  <rect class="cls-3" x="1450.19" y="940.6" width="144.49" height="50.7"/>
-  <rect class="cls-1" x="1594.68" y="940.6" width="98.86" height="101.4"/>
-  <rect class="cls-8" x="1630.17" y="981.16" width="32.95" height="60.84"/>
-  <rect class="cls-5" x="1645.37" y="981.16" width="17.74" height="60.84"/>
-  <rect class="cls-1" x="1521.17" y="831.6" width="27.88" height="22.81"/>
-  <rect class="cls-4" x="1516.1" y="824" width="38.02" height="7.6"/>
-  <rect class="cls-5" x="1473" y="981.16" width="22.81" height="22.81"/>
-  <rect class="cls-5" x="1528.77" y="981.16" width="22.81" height="22.81"/>
+  <rect class="cls-2" x="1424.19" y="916.6" width="243.35" height="101.4"/>
+  <polygon class="cls-10" points="1618.54 830.42 1568.78 916.6 1668.3 916.6 1618.54 830.42"/>
+  <polygon class="cls-9" points="1618.54 853.54 1582.22 916.45 1654.86 916.45 1618.54 853.54"/>
+  <polygon class="cls-7" points="1618.54 830.42 1477.8 830.42 1424.19 916.6 1568.78 916.6 1618.54 830.42"/>
+  <polygon class="cls-4" points="1440.35 890.62 1583.79 890.62 1568.78 916.6 1424.19 916.6 1440.35 890.62"/>
+  <polygon class="cls-6" points="1599.33 863.69 1456.6 863.69 1440.35 890.62 1583.79 890.62 1599.33 863.69"/>
+  <rect class="cls-3" x="1424.19" y="916.6" width="144.49" height="50.7"/>
+  <rect class="cls-1" x="1568.68" y="916.6" width="98.86" height="101.4"/>
+  <rect class="cls-8" x="1604.17" y="957.16" width="32.95" height="60.84"/>
+  <rect class="cls-5" x="1619.37" y="957.16" width="17.74" height="60.84"/>
+  <rect class="cls-1" x="1495.17" y="807.6" width="27.88" height="22.81"/>
+  <rect class="cls-4" x="1490.1" y="800" width="38.02" height="7.6"/>
+  <rect class="cls-5" x="1447" y="957.16" width="22.81" height="22.81"/>
+  <rect class="cls-5" x="1502.77" y="957.16" width="22.81" height="22.81"/>
 </svg>
