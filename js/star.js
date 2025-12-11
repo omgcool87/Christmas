@@ -53,3 +53,82 @@ function updataCountdown() {
 
 }
 updataCountdown();
+
+// 下雪效果
+let snowfalling = document.querySelector(".snowfalling");
+let context = snowfalling.getContext("2d");
+let wid = window.innerWidth;
+let hgt = window.innerHeight;
+snowfalling.width = wid;
+snowfalling.height = hgt;
+
+let num = 200;
+let snows = [];
+
+// Create the snow data
+for (let i = 0; i < num; i++) {
+    snows.push({
+        x: Math.random() * wid,
+        y: Math.random() * hgt,
+        r: Math.random() * 2 + 1, // Radius
+        d: Math.random() + 0.2      // Density (controls fall speed)
+    });
+}
+
+let draw = () => {
+    // 1. Clear the canvas for the new frame
+    context.clearRect(0, 0, wid, hgt);
+
+    // 2. Set style and shadow (Soft Glow Effect)
+    context.fillStyle = "rgb(255, 255, 255)";
+    context.shadowColor = "white"; // Where you stopped
+    context.shadowBlur = 5;        // Adds a soft glow to the snow
+    
+    context.beginPath();
+
+    // 3. Loop through snows array to draw and move
+    for (let i = 0; i < num; i++) {
+        let s = snows[i];
+
+        // Draw the flake
+        context.moveTo(s.x, s.y);
+        context.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+
+        // Update position (Falling down)
+        s.y += s.d; // Move down based on density
+        s.x += Math.sin(s.y * 0.05) * 0.5; // Slight side-to-side sway
+
+        // 4. Reset flake if it leaves the bottom or right side
+        if (s.y > hgt) {
+            s.y = 0;
+            s.x = Math.random() * wid;
+        }
+        if (s.x > wid) {
+            s.x = 0;
+        }
+    }
+    
+    context.fill();
+    
+    // 5. Repeat the animation
+    requestAnimationFrame(draw);
+
+    // ... (在你原本的程式碼下方加入這段) ...
+
+    window.addEventListener("resize", () => {
+    // 1. 重新取得視窗寬高
+    wid = window.innerWidth;
+    hgt = window.innerHeight;
+    
+    // 2. 更新 Canvas 大小
+    snowfalling.width = wid;
+    snowfalling.height = hgt;
+    
+    // 3. (選用) 如果你想在視窗變大時增加雪花數量，可以在這裡補 code
+    // 但通常只更新寬高就夠了，舊的雪花會自動飄到新邊界內
+    });
+}
+
+// Start the animation
+draw();
+

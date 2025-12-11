@@ -3,6 +3,11 @@ body ,html {
     padding: 0;
     scroll-behavior: smooth;
 }
+.page-1 ,.page-2 ,.page-3 {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
 /* 調整header的設置 */
 header {
     width: 100%;
@@ -40,8 +45,6 @@ header .header_link:hover {
 /* -----調整第一頁第一章的設置----- */
 .page-1 {
     background: linear-gradient(0,#345370 32%,#011521 100%);
-    width: 100%;
-    height: 100vh;
     overflow: hidden;
 }
 /* 前景圖 */
@@ -51,6 +54,38 @@ header .header_link:hover {
     position: absolute;
     object-position: bottom center;
     z-index: 2;
+}
+.santa-img {
+    position: absolute;
+    width: 600px;
+    /* 加入最大寬度限制，避免手機版太大 */
+    max-width: 80%; 
+    height: auto;
+    /* 這裡不用設 transform，交給 keyframes 控制就好 */
+    z-index: 2; /* 補上 z-index 確保層級 */
+    top: 10%;   /* 建議給個高度，不然可能會貼頂 */
+    animation: fly-over-moon 10s linear infinite;
+}
+
+/* 4. 定義飛行路徑 */
+@keyframes fly-over-moon {
+    /* --- 起點：左下角 --- */
+    0% {
+        /* translateX: 水平位置 (負數代表在螢幕左邊外面) */
+        /* translateY: 垂直高度 (數值越大越靠下，50vh 代表畫面一半高) */
+        /* rotate: 稍微頭抬高 (-10deg)，像飛機起飛 */
+        transform: translate(-100%, 20vh) rotate(-10deg);
+        opacity: 1;
+    }
+    
+    40% {
+        transform: translate(20vw, 5vh) rotate(-5deg) 
+    }
+    /* --- 中間點：正上方 (月亮附近) --- */
+    100% {
+        
+        transform: translate(110vw, 0vh) rotate(0deg);
+    }
 }
 /* 星星容器 */
 .stars {
@@ -130,8 +165,6 @@ header .header_link:hover {
 /* -----調整第一頁第二章的設置----- */
 .page-2 {
     background-color:white;
-    width: 100%;
-    height: 100vh;
     overflow: hidden;
 }
 .page-2 img {
@@ -150,7 +183,7 @@ header .header_link:hover {
     flex-direction: column;
     align-items: center;
     z-index: 4;
-    margin-top: 10VH;
+    margin-top: 5vh;
 }
 .countdown h1 {
     margin: 0 0 0 0;
@@ -181,23 +214,67 @@ header .header_link:hover {
 
 /* -----調整第一頁第三章的設置----- */
 .page-3 {
-    background-color:#345370;
-    width: 100%;
-    height: 100vh;
+    background: linear-gradient(0deg, #1b083e 20%,#2D3B4F 80%);
     overflow: hidden;
 }
-.page-3 img {
-    object-fit: cover;
+.page-3 > img {
+    object-fit: cover;  
     vertical-align: bottom;
     position: absolute;
     object-position: bottom center;
+    z-index: 1;
 }
+
+.page3-word {
+    position: absolute;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    z-index: 3;
+    gap: 10%;
+    
+}
+.page3-container img {
+    z-index: 3;
+}
+.page-word-title{  
+    display: flex;
+    align-items: center;
+    height: auto;
+    width: auto;
+    z-index: 3;
+}
+/* 第三頁標題 */
+.page-word-title h4 {
+    margin: 0;
+    padding: 0;
+    font-size: 40px;
+}
+.page-word-title img{
+    position: relative;
+}
+.page3-word p {
+    font-size: 20px;
+    font-weight: lighter;
+}
+/* 下雪效果 */
+.snowfalling {
+    position: fixed;
+    z-index: 0;
+    width: 100%;         /* 強制撐滿寬度 */
+    height: 100%;
+}
+/* 註腳 */
 footer {
     width: 100%;
     height:30px;
     margin: 0;
     padding: 0;
-    background-color: #14293d;
+    background-color: #05233f;
     display: flex;
     justify-content: center;
     align-items: center;
