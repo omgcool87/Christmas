@@ -263,7 +263,7 @@ header .header_link:hover {
 }
 /* 下雪效果 */
 .snowfalling {
-    position: fixed;
+    position: absolute;
     z-index: 0;
     width: 100%;         /* 強制撐滿寬度 */
     height: 100%;
