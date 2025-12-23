@@ -131,4 +131,3 @@ let draw = () => {
 
 // Start the animation
 draw();
-
