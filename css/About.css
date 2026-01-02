@@ -1,7 +1,14 @@
+/* -------------------全部-------------------- */
+.page-1 ,.page-2 ,.page-3 {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
 html,body {
     margin: 0;
     padding: 0;
 }
+/* -------------------導覽頁-------------------- */
 nav {
     width: 100%;
     height: 100px;
@@ -21,7 +28,7 @@ nav ul {
 }
 .nav_link{
     text-decoration: none;
-    color: white;
+    color: black;
     font-size: 20px;
     font-weight: bold;
     transition: all 0.1s ease-out;
@@ -31,4 +38,82 @@ nav ul {
 .nav_link:hover {
     color: #ce870d;
     transform: scale(1.15);
+}
+
+/* -----------------------第一頁--------------------------- */
+.page-1 {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(45deg, #fffae3 0%, #ffffff 50%, #fffae3 100%);
+    overflow: hidden;
+}
+.page-1 img {
+    object-fit: cover;
+    vertical-align: bottom;
+    position: absolute;
+    object-position: bottom center;
+    z-index: 1;
+    user-select: none;
+    pointer-events: none;
+    bottom: 0;
+}
+.deco {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 2;
+}
+
+
+.santa-container {
+    display: grid;
+    /* 核心代碼：分成三欄，每欄各佔 1 份剩餘空間 */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;               /* 卡片之間的間距 */
+    width: 50%;              /* 容器寬度 */
+    max-width: 1200px;
+    z-index: 3;
+}
+
+.santa-card {
+    width: 100%;
+    height: 600px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    z-index: 3;
+}
+.santa-card:nth-child(1) {
+    background-image: url(../image/第二頁/资源\ 2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.santa-card img {
+    width: 300px;             /* 讓圖片隨卡片寬度縮放 */
+    height: auto;
+    border-radius: 10px;
+}
+
+.santa-card:hover {
+    transform: translateY(-10px); /* 滑鼠懸停時微升，增加互動感 */
+}
+
+/* -----------------------第二頁--------------------------- */
+.page-2 {
+    width: 100%;
+    height: 100vh;
+    background: #393f34;
+    overflow: hidden;
+}
+/* -----------------------第三頁--------------------------- */
+.page-3 {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(45deg, #fff7eb 0%, #fffbf5 50%, #ffeed2 100%);
+    overflow: hidden;
 }
