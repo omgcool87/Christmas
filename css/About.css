@@ -7,13 +7,14 @@
 html,body {
     margin: 0;
     padding: 0;
+    will-change: filter;
 }
 /* -------------------導覽頁-------------------- */
 nav {
     width: 100%;
     height: 100px;
     position: absolute;
-    z-index: 4;
+    z-index: 100;
 }
 nav ul {
     width: auto;
@@ -46,8 +47,10 @@ nav ul {
     height: 100vh;
     background: linear-gradient(45deg, #fffae3 0%, #ffffff 50%, #fffae3 100%);
     overflow: hidden;
+    position: relative;
+    z-index: 6;
 }
-.page-1 img {
+.page-1 > img {
     object-fit: cover;
     vertical-align: bottom;
     position: absolute;
@@ -63,52 +66,150 @@ nav ul {
     left: 0;
     overflow: hidden;
     z-index: 2;
-}
-
-
-.santa-container {
-    display: grid;
-    /* 核心代碼：分成三欄，每欄各佔 1 份剩餘空間 */
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 30px;               /* 卡片之間的間距 */
-    width: 50%;              /* 容器寬度 */
-    max-width: 1200px;
-    z-index: 3;
-}
-
-.santa-card {
     width: 100%;
-    height: 600px;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-    z-index: 3;
 }
-.santa-card:nth-child(1) {
-    background-image: url(../image/第二頁/资源\ 2.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+/* ---------------------網格------------------------ */
+.grid-outside {
+    position: relative; /* 確保在背景之上 */
+    z-index: 5;
+    width: 100%;        /* 限制網格總寬度 */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.santa-card img {
-    width: 300px;             /* 讓圖片隨卡片寬度縮放 */
-    height: auto;
-    border-radius: 10px;
+.grid-container {
+    display: grid;
+    /* 核心：使用 1fr 讓三格平分，就不會跑出框外 */
+    grid-template-columns: repeat(3, 1fr); 
+    /* 這裡的 gap 效果等同於 space-between 的間距 */
+    gap: 30px; 
+    /* border: 1px solid black; 您的觀察用邊框 */
+    width: auto;
+    height: auto; 
+    min-height: 50vh;
 }
 
-.santa-card:hover {
-    transform: translateY(-10px); /* 滑鼠懸停時微升，增加互動感 */
+.grid-item {
+    /* 移除固定 width: 400px; 這是跑出框外的元兇 */
+    /* background-color: rgba(240, 240, 240, 0.8);  */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    min-width: 200px;
+    position: relative;
 }
 
+/* 圖片核心設定：不裁切、不變形 */
+.card {
+    width: 100%;      /* 寬度隨格子縮放 */
+    height: auto;     /* 高度自動，維持原始比例 */
+    max-height: 45vh; /* 避免圖片太高撞到邊框 */
+    object-fit: contain; 
+    display: block;
+    transition: transform 0.3s ease-out;
+    transform-origin: bottom;
+}
+.card:hover {
+    transform: translateY(30px) scale(1.10);
+}
+
+.card-contain {
+    position: absolute;
+    width:20%;
+    pointer-events: none;
+    transition: transform 0.3s ease-out;
+}
+/* 當滑鼠進入容器，先讓所有格子變暗、變黑白 */
+.grid-container:hover .grid-item {
+    filter: grayscale(1);
+    opacity: 0.5;
+    transition: filter 0.4s ease, opacity 0.4s ease;
+}
+
+/* 只有「正在被滑鼠碰到」的那個格子，恢復彩色並放大 */
+.grid-container .grid-item:hover {
+    filter: grayscale(0);
+    opacity: 1;
+}
+.grid-item:hover .card-contain {
+    transform: scale(2);
+}
 /* -----------------------第二頁--------------------------- */
 .page-2 {
     width: 100%;
     height: 100vh;
     background: #393f34;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.page-2 > h1 {
+    color: white;
+    font-size: 5vh;
+}
+.grid-2-container {
+    display: grid;
+    grid-template-columns: repeat(2,1fr 3fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    width: 70%;
+    height:50%;
+    border: 10px solid red;
+    z-index: 10;
+    grid-template-areas: 
+    "aside-l main-1 aside-r main-5"
+    "aside-l main-2 aside-r main-6"
+    "aside-l main-3 aside-r main-7";
+}
+/* 剩下設定在下面 */
+.page2-grid {
+    border: 2px solid white;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+}
+
+.G-2-img {
+    width: 30%;
+    height:100%;
+    overflow: hidden;
+    border-radius: inherit;
+}
+.G-2-img img {
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.G-3-img {
+    width: 30%;
+    height:100%;
+    overflow: hidden;
+    border-radius: inherit;
+}
+.G-3-img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+.G-4-img {
+    width: 30%;
+    height:100%;
+    overflow: hidden;
+    border-radius: inherit;
+}
+.G-4-img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: flex;
 }
 /* -----------------------第三頁--------------------------- */
 .page-3 {
@@ -116,4 +217,227 @@ nav ul {
     height: 100vh;
     background: linear-gradient(45deg, #fff7eb 0%, #fffbf5 50%, #ffeed2 100%);
     overflow: hidden;
+}
+/* ------------------------------------------------------ */
+@media (max-width: 768px) {
+    .grid-container {
+        /* 強制改為一欄，這樣圖片就會垂直排列（達成換行效果） */
+        grid-template-columns: 1fr; 
+        gap: 10px;
+    }
+    .grid-item {
+        width: 100px;
+        min-width: 100px;
+        padding: 5px;
+    }
+    .deco {
+        display: none;
+    }
+    nav ul {
+      margin: 0;
+      display: flex;
+      justify-content: center;  
+    }
+}
+
+/* --------------------------卡片內容一---------------------------- */
+.santa-container {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: 2000;
+    background: rgba(0, 0, 0, 0.397);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .3s ease-in;
+}
+.santa-intro {
+    width: 50%;
+    height: 50%;
+    background: white;
+    border-radius: 30px;
+    display: flex;
+    position: relative;
+    box-shadow: 5px 5px 10px rgb(119, 119, 119);
+    transform: translateY(20px);
+    transition: all .3s ease-in;
+}
+.santa {
+    width: 30%;
+    object-fit: cover;
+    height: 100%;
+    border-radius: 30px;
+    user-select: none;
+}
+.intro-1 {
+    margin: 0 10% 0 5%;
+    margin-top: 10%;
+}
+
+#cancel-1 {
+    position: absolute;
+    top:20px;
+    right: 20px;
+    height: 6%;
+    transition: transform 0.1s ease-out;
+}
+#cancel-1:hover {
+    transform: scale(1.20);
+    cursor: pointer;
+}
+.santa-container.active {
+    opacity: 1;
+    pointer-events: all;
+}
+.santa-container.active .santa-intro{
+    transform: translateY(0);
+}
+/* --------------------------卡片內容二---------------------------- */
+.reindeer-container {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: 2000;
+    background: rgba(0, 0, 0, 0.397);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .3s ease-in;
+}
+.reindeer-intro {
+    width: 50%;
+    height: 50%;
+    background: white;
+    border-radius: 30px;
+    display: flex;
+    position: relative;
+    box-shadow: 5px 5px 10px rgb(119, 119, 119);
+    transform: translateY(20px);
+    transition: all .3s ease-in;
+}
+.reindeer {
+    width: 30%;
+    object-fit: cover;
+    height: 100%;
+    border-radius: 30px;
+    user-select: none;
+}
+.intro-2 {
+    margin: 0 10% 0 5%;
+    margin-top: 10%;
+}
+
+#cancel-2 {
+    position: absolute;
+    top:20px;
+    right: 20px;
+    height: 6%;
+    transition: transform 0.1s ease-out;
+}
+#cancel-2:hover {
+    transform: scale(1.20);
+    cursor: pointer;
+}
+.reindeer-container.active {
+    opacity: 1;
+    pointer-events: all;
+}
+.reindeer-container.active .reindeer-intro{
+    transform: translateY(0);
+}
+/* --------------------------卡片內容三---------------------------- */
+.elf-container {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: 2000;
+    background: rgba(0, 0, 0, 0.397);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .3s ease-in;
+}
+.elf-intro {
+    width: 50%;
+    height: 50%;
+    background: white;
+    border-radius: 30px;
+    display: flex;
+    position: relative;
+    box-shadow: 5px 5px 10px rgb(119, 119, 119);
+    transform: translateY(20px);
+    transition: all .3s ease-in;
+}
+.elf {
+    width: 30%;
+    object-fit: cover;
+    height: 100%;
+    border-radius: 30px;
+    user-select: none;
+}
+.intro-3 {
+    margin: 0 10% 0 5%;
+    margin-top: 10%;
+}
+
+#cancel-3 {
+    position: absolute;
+    top:20px;
+    right: 20px;
+    height: 6%;
+    transition: transform 0.1s ease-out;
+}
+#cancel-3:hover {
+    transform: scale(1.20);
+    cursor: pointer;
+}
+.elf-container.active {
+    opacity: 1;
+    pointer-events: all;
+}
+.elf-container.active .elf-intro{
+    transform: translateY(0);
+}
+/* --------------------------第二章的grid---------------------------- */
+.G-1 {
+    grid-area: aside-l;
+    background-image: url(../image/第二頁/资源\ 5.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.G-2 {
+    grid-area: main-1;
+}
+.G-3 {
+    grid-area: main-2;
+}
+.G-4 {
+    grid-area: main-3;
+}
+.G-6 {
+    grid-area: aside-r;
+    background-image: url(../image/第二頁/资源\ 5.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.G-7 {
+    grid-area: main-5;
+}
+.G-8 {
+    grid-area: main-6;
+}
+.G-9 {
+    grid-area: main-7;
 }
