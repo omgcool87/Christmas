@@ -7,7 +7,6 @@
 html,body {
     margin: 0;
     padding: 0;
-    will-change: filter;
 }
 /* ------   -------------導覽頁-------------------- */
 nav {
@@ -113,7 +112,7 @@ nav ul {
     transform-origin: bottom;
 }
 .card:hover {
-    transform: translateY(30px) scale(1.10);
+    transform: translateY(-10px) scale(1.10);
 }
 
 .card-contain {
@@ -151,6 +150,7 @@ nav ul {
 .page-2 > h1 {
     color: white;
     font-size: 5vh;
+    margin-bottom: 40px;
 }
 .grid-2-container {
     display: grid;
@@ -159,7 +159,6 @@ nav ul {
     gap: 10px;
     width: 70%;
     height:50%;
-    border: 10px solid red;
     z-index: 10;
     grid-template-areas: 
     "aside-l main-1 aside-r main-5"
@@ -168,7 +167,6 @@ nav ul {
 }
 /* 剩下設定在下面 */
 .page2-grid {
-    border: 2px solid rgb(250, 112, 213);
     border-radius: 10px;
     overflow: hidden;
     height: 100%;
@@ -176,12 +174,15 @@ nav ul {
     background-color: #fff4e3;
 }
 
-.G-2-img , .G-3-img , .G-4-img {
+.G-1 , .G-6 {
+    background: transparent;
+}
+.G-2-img , .G-3-img , .G-4-img , .G-7-img , .G-8-img , .G-9-img{
     height: 100%;
     width: clamp(50px, 30%, 180px);
     flex-shrink: 0;
 }
-.G-2-img img , .G-3-img img , .G-4-img img {
+.G-2-img img, .G-3-img img, .G-4-img img, .G-7-img img, .G-8-img img, .G-9-img img  {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -189,7 +190,7 @@ nav ul {
     flex-shrink: 0;
     border-radius: inherit;
 }
-.G-2-WORD , .G-3-WORD , .G-4-WORD {
+.G-2-WORD, .G-3-WORD, .G-4-WORD, .G-7-WORD, .G-8-WORD, .G-9-WORD {
     width: 140px;
     height: 100%;
     padding-top: 0;
@@ -199,7 +200,7 @@ nav ul {
     flex: 1;
     min-width: 0;
 }
-.G-2-WORD h2, .G-3-WORD h2, .G-4-WORD h2 {
+.G-2-WORD h2, .G-3-WORD h2, .G-4-WORD h2, .G-7-WORD h2, .G-8-WORD h2, .G-9-WORD h2 {
     margin-top: 5%;
     margin-bottom: 5%;
     font-size: clamp(30px, 3vw, 50px);
@@ -218,49 +219,30 @@ nav ul {
     background: linear-gradient(45deg, #fff7eb 0%, #fffbf5 50%, #ffeed2 100%);
     overflow: hidden;
 }
-/* ------------------------------------------------------ */
-@media (max-width:1024px) {
-    .grid-2-container {
-        width: 80%;
-        height: 30%;
-    }
+.up {
+    text-align: center;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    z-index: 1;
 }
-@media (max-width: 768px) {
-    .grid-container {
-        /* 強制改為一欄，這樣圖片就會垂直排列（達成換行效果） */
-        grid-template-columns: 1fr; 
-        gap: 10px;
-    }
-    .grid-item {
-        width: 100px;
-        min-width: 100px;
-        padding: 5px;
-    }
-    .deco {
-        display: none;
-    }
-    nav ul {
-      margin: 0;
-      display: flex;
-      justify-content: center;  
-    }
-    .grid-2-container {
-        grid-template-columns: repeat(1,minmax(63px,1fr) minmax(190px, 3fr));
-        grid-template-rows: repeat(6, 1fr);
-        width: 80%;
-        height:60%;
-        grid-template-areas: 
-        "aside-l main-1"
-        "aside-l main-2"
-        "aside-l main-3"
-        "aside-r main-5"
-        "aside-r main-6"
-        "aside-r main-7";
-    }
+.down {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: right;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
 }
 /* --------------------------卡片內容一---------------------------- */
 .santa-container {
     position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100vh;
     z-index: 2000;
@@ -317,6 +299,8 @@ nav ul {
 /* --------------------------卡片內容二---------------------------- */
 .reindeer-container {
     position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100vh;
     z-index: 2000;
@@ -373,6 +357,8 @@ nav ul {
 /* --------------------------卡片內容三---------------------------- */
 .elf-container {
     position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100vh;
     z-index: 2000;
@@ -458,4 +444,103 @@ nav ul {
 }
 .G-9 {
     grid-area: main-7;
+}
+
+
+
+
+#loading-mask {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: #011521; /* 配合你 Page 1 的深色 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* 最高的層級 */
+    color: white;
+    transition: opacity 0.5s ease;
+}
+.loading-content > img {
+    width: 100px;
+    height: 100%;
+}
+.loading-content { text-align: center; width: 300px; }
+
+
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+#progress-fill {
+    width: 0%; /* 初始寬度為 0 */
+    height: 100%;
+    background: #ce870d; /* 你的金黃主題色 */
+    transition: width 0.2s ease-out;
+}
+/* -------------------------RWD----------------------------- */
+@media (max-width:1024px) {
+    .grid-2-container {
+        width: 80%;
+        height: 30%;
+    }
+    .intro-RWD {
+        width: 90%;
+        height:50%;
+    }
+    .intro-RWD h1 {
+        font-size: 70px;
+    }
+    .intro-RWD p {
+        font-size: 30px;
+    }
+}
+@media (max-width: 768px) {
+    .grid-container {
+        /* 強制改為一欄，這樣圖片就會垂直排列（達成換行效果） */
+        grid-template-columns: 1fr; 
+        gap: 10px;
+    }
+    .grid-item {
+        width: 100px;
+        min-width: 100px;
+        padding: 5px;
+    }
+    .deco {
+        display: none;
+    }
+    nav ul {
+      margin: 0;
+      display: flex;
+      justify-content: center;  
+    }
+    .grid-2-container {
+        grid-template-columns: repeat(1,minmax(63px,1fr) minmax(190px, 3fr));
+        grid-template-rows: repeat(6, 1fr);
+        width: 80%;
+        height:60%;
+        grid-template-areas: 
+        "aside-l main-1"
+        "aside-l main-2"
+        "aside-l main-3"
+        "aside-r main-5"
+        "aside-r main-6"
+        "aside-r main-7";
+    }
+    .intro-RWD {
+        width: 90%;
+        height:50%;
+    }
+    .intro-RWD h1 {
+        font-size: 30px;
+    }
+    .intro-RWD p {
+        font-size: 15px;
+    }
 }

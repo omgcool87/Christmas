@@ -345,3 +345,100 @@ footer {
     background: #ce870d; /* 你的金黃主題色 */
     transition: width 0.2s ease-out;
 }
+/* ----------------------RWD-------------------------- */
+@media (max-width:1024px) {
+    header ul {
+    justify-content:center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    margin-top: 20px;
+    gap:80px;
+    }
+    header .header_link{
+    text-decoration: none;
+    color: white;
+    font-size: 45px;
+    font-weight: bold;
+    transition: all 0.1s ease-out;
+    display: inline-block;
+    }
+    .tap-to-start h6 {
+    margin: 0;
+    font-size: 40px;
+    }
+    .arrow-svg {
+    width: 60px; /* 箭頭大小 */
+    height: 60px;
+    }
+    .countdown {
+        margin-top: 10vh;
+    }
+    .countdown h1 {
+        font-size: 70px;
+    }
+    .day small {
+        font-size: 20px;
+    }
+    .page3-word {
+        flex-direction: column;
+    }
+    .page3-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .page3-container a {
+        margin-top: 20px;
+    }
+    .village {
+        width: 40vh;
+        height: auto;
+    }
+}
+@media (max-width: 768px) {
+    .page3-container a {
+        margin-top: 20px;
+    }
+    .page3-container p {
+        font-size: 15px;
+    }
+    .village {
+        width: 30vh;
+        height: auto;
+    }
+    header ul {
+    margin-top: 20px;
+    gap:40px;
+    }
+    header .header_link{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    transition: all 0.1s ease-out;
+    display: inline-block;
+    }
+    .tap-to-start h6 {
+    margin: 0;
+    font-size: 20px;
+    }
+    .arrow-svg {
+    width: 50px; /* 箭頭大小 */
+    height: 50px;
+    }
+    .countdown {
+        margin-top: 5vh;
+    }
+    .countdown h1 {
+        font-size: 40px;
+        text-align: center;
+    }
+    .date {
+        flex-direction: column;
+    }
+    .date p {
+        display: none;
+    }
+}

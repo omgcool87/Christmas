@@ -5,10 +5,12 @@ const cancel_1 = document.querySelector("#cancel-1");
 
 item_1.onclick = () => {
     santa_container.classList.add("active");
+    document.body.style.overflow = 'hidden';
 }
 
 cancel_1.onclick = () => {
     santa_container.classList.remove("active");
+    document.body.style.overflow = 'auto';
 }
 
 // 卡片二
@@ -18,10 +20,12 @@ const cancel_2 = document.querySelector("#cancel-2");
 
 item_2.onclick = () => {
     reindeer_container.classList.add("active");
+    document.body.style.overflow = 'hidden';
 }
 
 cancel_2.onclick = () => {
     reindeer_container.classList.remove("active");
+    document.body.style.overflow = 'auto';
 }
 
 // 卡片三
@@ -31,8 +35,10 @@ const cancel_3 = document.querySelector("#cancel-3");
 
 item_3.onclick = () => {
     elf_container.classList.add("active");
+    document.body.style.overflow = 'hidden';
 }
 
 cancel_3.onclick = () => {
     elf_container.classList.remove("active");
+    document.body.style.overflow = 'auto';
 }
