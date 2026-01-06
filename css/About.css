@@ -2,7 +2,7 @@
 .page-1 ,.page-2 ,.page-3 {
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: 100svh;
 }
 html,body {
     margin: 0;
@@ -43,7 +43,7 @@ nav ul {
 /* -----------------------第一頁--------------------------- */
 .page-1 {
     width: 100%;
-    height: 100vh;
+    height: 100svh;
     background: linear-gradient(45deg, #fffae3 0%, #ffffff 50%, #fffae3 100%);
     overflow: hidden;
     position: relative;
@@ -72,7 +72,7 @@ nav ul {
     position: relative; /* 確保在背景之上 */
     z-index: 5;
     width: 100%;        /* 限制網格總寬度 */
-    height: 100vh;
+    height: 100svh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -87,7 +87,7 @@ nav ul {
     /* border: 1px solid black; 您的觀察用邊框 */
     width: auto;
     height: auto; 
-    min-height: 50vh;
+    min-height: 50svh;
 }
 
 .grid-item {
@@ -105,7 +105,7 @@ nav ul {
 .card {
     width: 100%;      /* 寬度隨格子縮放 */
     height: auto;     /* 高度自動，維持原始比例 */
-    max-height: 45vh; /* 避免圖片太高撞到邊框 */
+    max-height: 45svh; /* 避免圖片太高撞到邊框 */
     object-fit: contain; 
     display: block;
     transition: transform 0.3s ease-out;
@@ -139,7 +139,7 @@ nav ul {
 /* -----------------------第二頁--------------------------- */
 .page-2 {
     width: 100%;
-    height: 100vh;
+    height: 100svh;
     background: #393f34;
     overflow: hidden;
     display: flex;
@@ -149,7 +149,7 @@ nav ul {
 }
 .page-2 > h1 {
     color: white;
-    font-size: 5vh;
+    font-size: 5svh;
     margin-bottom: 40px;
 }
 .grid-2-container {
@@ -215,7 +215,7 @@ nav ul {
 /* -----------------------第三頁--------------------------- */
 .page-3 {
     width: 100%;
-    height: 100vh;
+    height: 100svh;
     background: linear-gradient(45deg, #fff7eb 0%, #fffbf5 50%, #ffeed2 100%);
     overflow: hidden;
 }
@@ -244,7 +244,7 @@ nav ul {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100svh;
     z-index: 2000;
     background: rgba(0, 0, 0, 0.397);
     backdrop-filter: blur(5px);
@@ -302,7 +302,7 @@ nav ul {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100svh;
     z-index: 2000;
     background: rgba(0, 0, 0, 0.397);
     backdrop-filter: blur(5px);
@@ -360,7 +360,7 @@ nav ul {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100svh;
     z-index: 2000;
     background: rgba(0, 0, 0, 0.397);
     backdrop-filter: blur(5px);

@@ -6,7 +6,7 @@ body ,html {
 .page-1 ,.page-2 ,.page-3 {
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: 100svh;
 }
 /* 調整header的設置 */
 header {
@@ -76,17 +76,17 @@ header .header_link:hover {
         /* translateX: 水平位置 (負數代表在螢幕左邊外面) */
         /* translateY: 垂直高度 (數值越大越靠下，50vh 代表畫面一半高) */
         /* rotate: 稍微頭抬高 (-10deg)，像飛機起飛 */
-        transform: translate(-100%, 20vh) rotate(-10deg);
+        transform: translate(-100%, 20svh) rotate(-10deg);
         opacity: 1;
     }
     
     40% {
-        transform: translate(20vw, 5vh) rotate(-5deg) 
+        transform: translate(20vw, 5svh) rotate(-5deg) 
     }
     /* --- 中間點：正上方 (月亮附近) --- */
     100% {
         
-        transform: translate(110vw, 0vh) rotate(0deg);
+        transform: translate(110vw, 0svh) rotate(0deg);
     }
 }
 /* 星星容器 */
@@ -95,7 +95,7 @@ header .header_link:hover {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100svh;
   pointer-events: none;
   z-index: 1;
   overflow: hidden;
@@ -187,7 +187,7 @@ header .header_link:hover {
     flex-direction: column;
     align-items: center;
     z-index: 4;
-    margin-top: 5vh;
+    margin-top: 5svh;
 }
 .countdown h1 {
     margin: 0 0 0 0;
@@ -235,7 +235,7 @@ header .header_link:hover {
     position: absolute;
     right: 0;
     width: 100%;
-    height: 100vh;
+    height: 100svh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -372,7 +372,7 @@ footer {
     height: 60px;
     }
     .countdown {
-        margin-top: 10vh;
+        margin-top: 10svh;
     }
     .countdown h1 {
         font-size: 70px;
@@ -393,7 +393,7 @@ footer {
         margin-top: 20px;
     }
     .village {
-        width: 40vh;
+        width: 40svh;
         height: auto;
     }
 }
@@ -405,7 +405,7 @@ footer {
         font-size: 15px;
     }
     .village {
-        width: 30vh;
+        width: 30svh;
         height: auto;
     }
     header ul {
@@ -429,7 +429,7 @@ footer {
     height: 50px;
     }
     .countdown {
-        margin-top: 5vh;
+        margin-top: 5svh;
     }
     .countdown h1 {
         font-size: 40px;
