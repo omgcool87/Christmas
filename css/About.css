@@ -493,6 +493,7 @@ nav ul {
     .intro-RWD {
         width: 90%;
         height:50%;
+        overflow: scroll;
     }
     .intro-RWD h1 {
         font-size: 70px;
