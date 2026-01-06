@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>聖誕節客製化 3D 賀卡 - 樣式選擇版</title>
+    <link rel="stylesheet" href="test.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+
+<div class="snow" id="snow-container"></div>
+
+<div class="main-container">
+    <div class="editor-panel">
+        <h2>賀卡樣式編輯</h2>
+        
+        <div class="control-group">
+            <label class="group-label">選擇封面主題</label>
+            <div class="style-selector">
+                <label class="style-option">
+                    <input type="radio" name="card-style" value="https://images.unsplash.com/photo-1543589077-47d81606c1bf?q=80&w=1000" checked>
+                    <img src="https://images.unsplash.com/photo-1543589077-47d81606c1bf?q=80&w=200&fit=crop" alt="聖誕樹">
+                </label>
+                <label class="style-option">
+                    <input type="radio" name="card-style" value="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1000">
+                    <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=200&fit=crop" alt="禮物與雪">
+                </label>
+                <label class="style-option">
+                    <input type="radio" name="card-style" value="https://images.unsplash.com/photo-1576919228236-a097c32a5cd4?q=80&w=1000">
+                    <img src="https://images.unsplash.com/photo-1576919228236-a097c32a5cd4?q=80&w=200&fit=crop" alt="溫馨燈光">
+                </label>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="group-label">標題</label>
+            <input type="text" id="input-title" placeholder="例如：Merry Christmas!">
+        </div>
+        <div class="control-group">
+            <label class="group-label">祝福語</label>
+            <textarea id="input-text" rows="5" placeholder="寫下你的溫暖祝福..."></textarea>
+        </div>
+        <button class="flip-btn" id="flip-trigger">🔄 翻轉看背面</button>
+        <button class="download-btn" id="download-trigger">💾 下載目前畫面</button>
+    </div>
+
+    <div class="card-container" id="card-widget">
+        <div class="card-inner">
+            <div class="card-front" id="export-front">
+                <img id="preview-image" src="https://images.unsplash.com/photo-1543589077-47d81606c1bf?q=80&w=1000" alt="Xmas Cover">
+            </div>
+            <div class="card-back" id="export-back">
+                <div class="stamp">
+                    <span style="font-size: 2rem;">🎅</span><span>POSTAGE</span>
+                </div>
+                <div id="preview-title">Merry Christmas!</div>
+                <div id="preview-text">親愛的朋友，在這充滿歡樂的季節裡，願聖誕的光芒照亮你的每一天，帶給你無盡的平安與喜悅！</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="Game.js"></script>
+
+</body>
+</html>

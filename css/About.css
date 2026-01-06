@@ -501,6 +501,9 @@ nav ul {
     .intro-RWD p {
         font-size: 30px;
     }
+    .i {
+        margin-top: 0;
+    }
 }
 @media (max-width: 768px) {
     .grid-container {

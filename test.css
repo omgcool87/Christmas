@@ -1,0 +1,255 @@
+/* --- 1. 核心配色與背景 (維持不變) --- */
+        :root {
+            --xmas-red: #c0392b;
+            --xmas-green: #2d5a27;
+            --gold: #d4af37;
+        }
+
+        body {
+            font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+            background-image: linear-gradient(to bottom, #1a2a6c, #3a1c71, #d76d77);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            min-width: 100%;
+            margin: 0;
+            /* overflow: hidden; */
+        }
+
+        /* 背景落雪層 */
+        .snow { 
+            position: fixed; 
+            top:0; left:0; 
+            width:100%; 
+            height:100%; 
+            pointer-events:none; 
+            z-index:0; 
+        }
+
+        .main-container {
+            position: relative; 
+            width: auto;
+            z-index: 10;
+            display: flex; 
+            gap: 40px; 
+            padding: 20px;
+            flex-wrap: wrap; 
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        /* --- 2. 編輯區面板樣式 --- */
+        .editor-panel {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            width: 340px; /* 稍微加寬以容納縮圖 */
+            border: 3px solid var(--gold);
+        }
+
+        .editor-panel h2 { 
+            color: var(--xmas-red); 
+            text-align: center; 
+            margin-top: 0; 
+        }
+        .control-group { 
+            margin-bottom: 15px; 
+        }
+        label.group-label { 
+            display: block; 
+            margin-bottom: 8px; 
+            font-weight: bold; 
+            color: var(--xmas-green); 
+        }
+        input[type="text"], textarea {
+            width: 100%; 
+            padding: 10px; 
+            border: 2px solid #ddd; 
+            border-radius: 8px; 
+            box-sizing: border-box; 
+            font-family: inherit;
+            resize: none;
+        }
+        input:focus, textarea:focus { outline: none; border-color: var(--gold); }
+
+        /* ====== 新增：樣式選擇器 CSS ====== */
+        .style-selector {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3欄排列 */
+            gap: 10px;
+        }
+
+        /* 隱藏原始的 Radio 按鈕 */
+        .style-option input[type="radio"] {
+            display: none;
+        }
+
+        /* 縮圖樣式 */
+        .style-option img {
+            width: 100%;
+            aspect-ratio: 1/1; /* 強制正方形 */
+            object-fit: cover;
+            border-radius: 8px;
+            border: 3px solid transparent; /* 預留邊框空間 */
+            cursor: pointer;
+            transition: all 0.3s ease;
+            filter: grayscale(0.4); /* 未選中時稍微灰階 */
+        }
+        .style-option img:hover { filter: grayscale(0); transform: scale(1.05); }
+
+        /* 當 Radio 被選中時，其後的 img 的樣式 */
+        .style-option input:checked + img {
+            border-color: var(--gold);
+            box-shadow: 0 0 15px var(--gold);
+            filter: grayscale(0);
+            transform: scale(1.05);
+        }
+        /* ================================== */
+
+        button {
+            width: 100%; 
+            padding: 12px; 
+            margin-top: 10px; 
+            border: none; 
+            border-radius: 50px;
+            cursor: pointer; 
+            font-weight: bold; 
+            transition: 0.3s; 
+            font-size: 1rem;
+        }
+        .flip-btn { 
+            background: var(--xmas-red); 
+            color: white; 
+        }
+        .download-btn { 
+            background: var(--xmas-green); 
+            color: white; 
+        }
+        button:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3); 
+        }
+
+        /* --- 3. 賀卡 3D 結構 (維持不變) --- */
+        .card-container { 
+            perspective: 1500px;
+            width: 90vw; /* 讓卡片寬度隨手機螢幕自動縮放 */
+            max-width: 500px; /* 但在電腦上不要太大 */
+            aspect-ratio: 500 / 350; /* 鎖定比例，高度會自動計算 */
+            margin: 0 auto;
+         }
+        .card-inner {
+            position: relative; width: 100%; height: 100%;
+            transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+        .is-flipped .card-inner { 
+            transform: rotateY(180deg); 
+        }
+        .card-front, .card-back {
+            position: absolute; 
+            width: 100%; height: 100%; 
+            backface-visibility: hidden;
+            border-radius: 15px; 
+            border: 10px solid white;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5); 
+            background: white; 
+            box-sizing: border-box; 
+            overflow: hidden;
+        }
+        /* 正面圖片加入轉場效果，切換時更平滑 */
+        .card-front img { 
+            width: 100%; height: 100%; 
+            object-fit: cover; 
+            transition: opacity 0.3s; }
+        
+        .card-front::after {
+            content: "Merry Christmas"; 
+            position: absolute; bottom: 20px; 
+            right: 20px;
+            background: var(--xmas-red); color: white; 
+            padding: 5px 15px;
+            font-style: italic; 
+            font-family: 'Georgia', serif; 
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+        }
+        /* 背面 */
+        .card-back {
+            transform: rotateY(180deg); 
+            padding: 30px; 
+            background: #fffef0;
+            display: flex; 
+            flex-direction: column; 
+            border: 8px double var(--gold);
+        }
+        .stamp {
+            position: absolute; 
+            top: 25px; right: 25px; 
+            width: 70px; height: 85px;
+            border: 2px dashed var(--xmas-red); 
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center; 
+            font-size: 0.6rem; 
+            color: var(--xmas-red);
+        }
+        #preview-title { 
+            font-size: 1.8rem; 
+            color: var(--xmas-red); 
+            margin-bottom: 15px; 
+            border-bottom: 2px solid var(--gold); 
+            padding-bottom: 10px; 
+        }
+        #preview-text { 
+            font-size: 1.1rem; 
+            line-height: 1.8; 
+            color: #444; 
+            white-space: pre-wrap; 
+            font-style: italic; 
+        }
+
+        @keyframes snowfall {
+            0% { transform: translateY(-10px) rotate(0); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0.3; }
+        }
+
+        @media (max-width: 1024px) {
+            .main-container {
+                flex-direction: column-reverse; /* 改為上下堆疊，且預覽在上方 */
+                align-items: center;
+                padding: 10px;
+            }
+        }
+        @media (max-width: 768px) {
+            #preview-title { 
+                font-size: 1.1rem; 
+            }
+            #preview-text { 
+                font-size: 0.8rem; 
+            }
+            .card-back { 
+                padding: 8%; 
+            }
+            .editor-panel * {
+                max-width: 100%;
+                box-sizing: border-box;
+            }
+            .editor-panel {
+                box-sizing: border-box;
+                width: 100%;
+                max-width: 100%;
+                padding: 20px 16px;     /* 減一點 padding */
+                margin: 0 auto;
+                overflow-x: hidden;    /* 關鍵：防止子元素撐爆 */
+            }
+            input,
+            textarea,
+            select,
+            button {
+                max-width: 100%;
+            }
+        }
