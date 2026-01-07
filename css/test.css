@@ -1,3 +1,4 @@
+
 /* --- 1. 核心配色與背景 (維持不變) --- */
         :root {
             --xmas-red: #c0392b;
@@ -27,6 +28,20 @@
             z-index:0; 
         }
 
+        .return-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5%;
+            height: auto;
+            padding: 5%;
+            z-index: 999;
+            transition: transform 0.1s ease-out;
+        }
+        .return-img:hover {
+            transform: scale(1.30);
+        }
+
         .main-container {
             position: relative; 
             width: auto;
@@ -48,6 +63,8 @@
             box-shadow: 0 15px 35px rgba(0,0,0,0.4);
             width: 340px; /* 稍微加寬以容納縮圖 */
             border: 3px solid var(--gold);
+            position: relative;
+            z-index: 1;
         }
 
         .editor-panel h2 { 
@@ -145,6 +162,9 @@
             position: relative; width: 100%; height: 100%;
             transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
             transform-style: preserve-3d;
+            width: auto;
+            height: auto;
+            aspect-ratio: 500 / 350;
         }
         .is-flipped .card-inner { 
             transform: rotateY(180deg); 
@@ -178,8 +198,9 @@
         }
         /* 背面 */
         .card-back {
+            position: relative;
             transform: rotateY(180deg); 
-            padding: 30px; 
+            padding: 10% 10%; 
             background: #fffef0;
             display: flex; 
             flex-direction: column; 
@@ -203,6 +224,8 @@
             margin-bottom: 15px; 
             border-bottom: 2px solid var(--gold); 
             padding-bottom: 10px; 
+            width: 80%;
+            text-align: left;
         }
         #preview-text { 
             font-size: 1.1rem; 
@@ -210,7 +233,59 @@
             color: #444; 
             white-space: pre-wrap; 
             font-style: italic; 
+            word-wrap: break-word;
+            text-align: justify;
+            padding-right: 90px;
         }
+
+#loading-mask {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: #011521; /* 配合你 Page 1 的深色 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* 最高的層級 */
+    color: white;
+    transition: opacity 0.5s ease;
+}
+.loading-content > img {
+    width: 100px;
+    height: 100%;
+}
+.loading-content { text-align: center; width: 300px; }
+
+
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+#progress-fill {
+    width: 0%; /* 初始寬度為 0 */
+    height: 100%;
+    background: #ce870d; /* 你的金黃主題色 */
+    transition: width 0.2s ease-out;
+}
+
+/* --- 截圖專用修正 (關鍵) --- */
+#snapshot-temp {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    transform: none !important;
+}
+
+#snapshot-temp * {
+    transform: none !important;
+    backface-visibility: visible !important;
+}
 
         @keyframes snowfall {
             0% { transform: translateY(-10px) rotate(0); opacity: 1; }
@@ -225,6 +300,11 @@
             }
         }
         @media (max-width: 768px) {
+            nav ul {
+                margin: 0;
+                display: flex;
+                justify-content: center;  
+            }
             #preview-title { 
                 font-size: 1.1rem; 
             }
@@ -251,5 +331,21 @@
             select,
             button {
                 max-width: 100%;
+            }
+            .stamp {
+                width: 50px;
+                height: auto;
+            }
+            #preview-title {
+                padding-bottom: 15px ;
+            }
+            .return-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 10%;
+            height: auto;
+            padding: 2%;
+            z-index: 999;
             }
         }

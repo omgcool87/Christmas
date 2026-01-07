@@ -33,19 +33,6 @@ const previewImage = document.getElementById('preview-image');
         cardWidget.classList.toggle('is-flipped');
     });
 
-    // 下載按鈕
-    document.getElementById('download-trigger').addEventListener('click', () => {
-        const isFlipped = cardWidget.classList.contains('is-flipped');
-        const target = isFlipped ? "#export-back" : "#export-front";
-        // 提高下載解析度
-        html2canvas(document.querySelector(target), { scale: 2, useCORS: true }).then(canvas => {
-            const link = document.createElement('a');
-            link.download = `christmas-card-${isFlipped ? 'back' : 'front'}.png`;
-            link.href = canvas.toDataURL("image/png");
-            link.click();
-        });
-    });
-
     // 雪花動畫產生器 (維持不變)
     const snowContainer = document.getElementById('snow-container');
     for (let i = 0; i < 40; i++) {
@@ -57,3 +44,66 @@ const previewImage = document.getElementById('preview-image');
         snowflake.style.fontSize = Math.random() * 15 + 8 + 'px';
         snowContainer.appendChild(snowflake);
     }
+
+const currentCount = document.getElementById('current-count');
+const MAX_CHARS = 100; // 設定最大字數
+
+inputText.addEventListener('input', (e) => {
+    let content = e.target.value;
+    
+    // 如果字數超過上限，強制截斷（保險機制）
+    if (content.length > MAX_CHARS) {
+        content = content.substring(0, MAX_CHARS);
+        e.target.value = content;
+    }
+    
+    // 更新字數顯示
+    currentCount.innerText = content.length;
+    
+    // 更新卡片預覽
+    previewText.innerText = content || "寫下你的溫暖祝福...";
+});
+
+
+document.getElementById('download-trigger').addEventListener('click', () => {
+    const card = document.getElementById('card-widget');
+
+    // 1. clone 卡片
+    const clone = card.cloneNode(true);
+    clone.id = 'snapshot-temp';
+
+    // 2. 移除 3D 翻轉
+    clone.classList.remove('is-flipped');
+
+    const inner = clone.querySelector('.card-inner');
+    inner.style.transform = 'none';
+
+    // 3. 只留下目前畫面（正面 or 背面）
+    const isFlipped = card.classList.contains('is-flipped');
+    const front = clone.querySelector('.card-front');
+    const back  = clone.querySelector('.card-back');
+
+    if (isFlipped) {
+        front.style.display = 'none';
+        back.style.transform = 'none';
+    } else {
+        back.style.display = 'none';
+    }
+
+    // 4. 丟到畫面外
+    document.body.appendChild(clone);
+
+    // 5. 截圖
+    html2canvas(clone, {
+        scale: 2,
+        useCORS: true,
+        backgroundColor: null
+    }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = `christmas-card-${isFlipped ? 'back' : 'front'}.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+
+        clone.remove();
+    });
+});
