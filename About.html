@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/About.css">
     <link rel="stylesheet" href="./css/About_picture.css">
+    <link rel="stylesheet" href="./css/music.css">
     <title>About</title>
 </head>
 <body>
@@ -214,10 +215,26 @@
         </div>
     </div>
 
+    <div id="music-widget" class="floating-music">
+        <audio id="bg-music" loop>
+        <source src="music1.mp3" type="audio/mpeg">
+        </audio>
+        <div class="music-icon" id="music-toggle">
+            <span class="note-icon">♪</span>
+        </div>
+        <div class="music-menu" id="music-menu">
+            <div class="menu-header">背景音樂</div>
+            <div class="song-option" data-src="./music/十二天的聖誕節.mp3">聖誕嘉年華</div>
+            <div class="song-option active" data-src="./music/Music_2.mp3">寧靜雪地</div>
+            <div class="song-option" data-src="./music/Music_3.mp3">平安夜鈴聲</div>
+        </div>
+    </div>
+
     <script src="./js/test.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="./js/card.js"></script>
     <script src="./js/loading.js"></script>
+    <script src="./js/music.js"></script>
 </body>
 </html>

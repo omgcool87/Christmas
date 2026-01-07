@@ -1,0 +1,68 @@
+.floating-music {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+}
+
+/* 旋轉的圓形按鈕 */
+.music-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--xmas-red, #c0392b);
+    border: 3px solid #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
+}
+
+/* 音樂播放時旋轉 */
+.music-icon.playing {
+    animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.note-icon { color: white; font-size: 24px; }
+
+/* 浮動選單 */
+.music-menu {
+    background: white;
+    border-radius: 12px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    display: none; /* 預設隱藏 */
+    width: 150px;
+}
+
+.music-menu.show { display: block; }
+
+.song-option {
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.song-option:hover { background: #eee; }
+.song-option.active { color: var(--gold, #d4af37); font-weight: bold; }
+
+.menu-header {
+    font-weight: bold;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    color: #666;
+}
