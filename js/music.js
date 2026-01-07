@@ -54,3 +54,18 @@ options.forEach(opt => {
 document.addEventListener('click', () => {
     musicMenu.classList.remove('show');
 });
+
+
+// 監聽中斷事件並嘗試重新播放
+audio.addEventListener('stalled', () => {
+    console.log("音樂緩衝中斷，嘗試重新加載...");
+    audio.load();
+    audio.play();
+});
+
+// 處理 iPad 進入背景後回來失效的問題
+document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === 'visible' && !audio.paused) {
+        audio.play(); // 確保回到分頁時繼續播放
+    }
+});
